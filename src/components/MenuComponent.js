@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 // for constructing menu component
 import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle} from 'reactstrap'
+import DishDetail from './DishdetailComponent.js'
 
 //Name of new component is menu
 class Menu extends Component {
@@ -28,13 +29,9 @@ class Menu extends Component {
 
     renderDish(dish){
         if(dish != null){
-            return (<Card>
-                <CardImg top src={dish.image} alt={dish.name} />
-                <CardBody>
-                <CardTitle>{dish.name}</CardTitle>
-                <CardText>{dish.description}</CardText>
-                </CardBody>
-            </Card>);
+            return (
+                <DishDetail dish={dish}/>
+            );
         }
         else{
             return(
