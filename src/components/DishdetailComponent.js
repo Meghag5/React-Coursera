@@ -53,23 +53,23 @@ class DishDetail extends Component{
     }
 
     render(){
-        const dish = this.props.dish;
-        const dishItem = this.renderDish(dish);
-        const comment = this.renderComments(dish.comments);
+    const dish = this.props.dish;
 
-    if(dish != null){
-        return(
-            <div className="row">
-             { dishItem } 
-             { comment }
-            </div>
-        )
-    }
-    else{
+    if(dish == null){
         return(
             <div></div>
         );
     }
+
+    const dishItem = this.renderDish(dish);
+    const comment = this.renderComments(dish.comments);
+
+    return(
+        <div className="row">
+         { dishItem } 
+         { comment }
+        </div>
+    );
     }
 }
 
