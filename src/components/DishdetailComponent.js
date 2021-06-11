@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 // for constructing menu component
-import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle} from 'reactstrap'
+import { Card, CardImg, CardText, CardBody, CardTitle} from 'reactstrap'
 
 class DishDetail extends Component{
     constructor(props){
@@ -35,10 +35,12 @@ class DishDetail extends Component{
 
         const com = comments.map((comment) => {
             return(
+                <div className="container">
                 <li key={comment.id}>
                     <p>{comment.comment}</p>
-                    <p>--{comment.author} , {comment.date}</p>
+                    <p>--{comment.author} , {new Intl.DateTimeFormat('en-US',{ year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}</p>
                 </li>
+                </div>
             )
         })
 
